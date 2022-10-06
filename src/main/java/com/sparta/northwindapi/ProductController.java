@@ -43,11 +43,11 @@ public class ProductController {
         productRepo.deleteById(id);
     }
 
-    @PatchMapping("/product/patch")
-    public void editProduct(int ProductID, String ProductName, int SupplierID, int CategoryID, String QuantityPerunit, float UnitPrice, int UnitsInStock, int UnitOnOrder, int Reorderlevel, boolean Discontinued)){
-
-        productRepo.save();
-    }
+//    @PatchMapping("/product/patch")
+//    public void editProduct(int ProductID, String ProductName, int SupplierID, int CategoryID, String QuantityPerunit, float UnitPrice, int UnitsInStock, int UnitOnOrder, int Reorderlevel, boolean Discontinued)){
+//
+//        productRepo.save();
+//    }
 
     @PutMapping("/Product/put/{id}/productname/{newProductName}")
     public void edditOrAddProduct(@PathVariable int id, @PathVariable String newProductName){

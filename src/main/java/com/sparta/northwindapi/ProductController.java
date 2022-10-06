@@ -1,6 +1,8 @@
 package com.sparta.northwindapi;
 
 import com.sparta.northwindapi.Entity.Product;
+import com.sparta.northwindapi.dao.ProductDAO;
+import com.sparta.northwindapi.dto.ProductDTO;
 import com.sparta.northwindapi.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,10 +16,13 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepo;
 
+    @Autowired
+    private ProductDAO productDAO;
+
 
     @GetMapping("/product/all")
     public List<Product> getAllProducts(){
-        return productRepo.findAll();
+         return productRepo.findAll();
     }
 
     @PutMapping("/product/{id}")
@@ -26,7 +31,7 @@ public class ProductController {
     }
 
     @PutMapping("/product/price/{id}")
-    public java.math.BigDecimal getProce(@PathVariable int id){
+    public java.math.BigDecimal getProductprice(@PathVariable int id){
         Product product = productRepo.findById(id).get();
         return product.getUnitPrice();
     }
@@ -40,7 +45,14 @@ public class ProductController {
 
     @DeleteMapping("/product/remove/{id}")
     public void removeProduct(@PathVariable Integer id){
-        productRepo.deleteById(id);
+        productDAO.delete(id);
+    }
+
+    @PatchMapping("/product/edit/{id}/productName/{newProductName}")
+    public ProductDTO updateProductName(@PathVariable int id, @PathVariable String newProductName){
+        ProductDTO productDTO = new ProductDTO(id, newProductName, null, null, null, null, null, null);
+        productDTO = productDAO.update(productDTO);
+        return productDTO;
     }
 
 //    @PatchMapping("/product/patch")

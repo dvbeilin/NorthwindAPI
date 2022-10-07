@@ -204,13 +204,6 @@ public class Employee {
         this.extension = extension;
     }
 
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
-    }
 
     public String getNotes() {
         return notes;
@@ -220,21 +213,7 @@ public class Employee {
         this.notes = notes;
     }
 
-    public Employee getReportsTo() {
-        return reportsTo;
-    }
 
-    public void setReportsTo(Employee reportsTo) {
-        this.reportsTo = reportsTo;
-    }
-
-    public String getPhotoPath() {
-        return photoPath;
-    }
-
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
-    }
 
     public Float getSalary() {
         return salary;

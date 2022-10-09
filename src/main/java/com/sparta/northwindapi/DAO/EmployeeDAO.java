@@ -5,6 +5,8 @@ import com.sparta.northwindapi.Entity.Employee;
 import com.sparta.northwindapi.Repo.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -61,6 +63,7 @@ public class EmployeeDAO {
 
 
     public Integer create(EmployeeDto employeeDTO) {
+
        Employee theEmployee = new Employee(employeeDTO);
         employeeRepo.save(theEmployee);
         return theEmployee.getId();
@@ -89,6 +92,38 @@ public class EmployeeDAO {
                     theEmployee.getSalary()
             );
         } else return null;
+    }
+    public List<EmployeeDto> getAll() {
+        List<Employee> employees = employeeRepo.findAll();
+        if(employees.isEmpty()) {
+            return null;
+        }
+        List<EmployeeDto> employeeDto = new ArrayList<>();
+        employees.forEach(theEmployee ->employeeDto.add(new EmployeeDto(theEmployee.getId(),
+
+                theEmployee.getFirstName(),
+                theEmployee.getLastName(),
+                theEmployee.getTitle(),
+                theEmployee.getTitleOfCourtesy(),
+                theEmployee.getBirthDate(),
+                theEmployee.getHireDate(),
+                theEmployee.getAddress(),
+                theEmployee.getCity(),
+                theEmployee.getRegion(),
+                theEmployee.getCountry(),
+                theEmployee.getPostalCode(),
+                theEmployee.getHomePhone(),
+                theEmployee.getExtension(),
+                theEmployee.getNotes(),
+                theEmployee.getSalary())));
+        return employeeDto;
+    }
+    public boolean deleteById(int id) {
+        Optional<Employee> employeeOpt = employeeRepo.findById(id);
+        if(employeeOpt.isPresent() ) {
+            employeeRepo.deleteById(id);
+            return true;
+        } else return false;
     }
 
 }

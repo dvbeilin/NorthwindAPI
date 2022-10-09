@@ -1,5 +1,7 @@
 package com.sparta.northwindapi.Entity;
 
+import com.sparta.northwindapi.DTO.EmployeeDto;
+
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -67,9 +69,25 @@ public class Employee {
     @Column(name = "Salary")
     private Float salary;
 
+    public Employee(EmployeeDto employeeDTO) {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.title = title;
+        this.titleOfCourtesy = titleOfCourtesy;
+        this.birthDate = birthDate;
+        this.hireDate = hireDate;
+        this.address = address;
+        this.city = city;
+        this.region = region;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.homePhone = homePhone;
+        this.extension = extension;
+        this.notes = notes;
 
-
-
+        this.salary = salary;
+    }
 
 
     public Integer getId() {

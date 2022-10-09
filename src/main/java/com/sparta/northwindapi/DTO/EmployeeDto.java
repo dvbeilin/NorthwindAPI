@@ -10,7 +10,7 @@ import java.util.Objects;
  * A DTO for the {@link Employee} entity
  */
 public class EmployeeDto implements Serializable {
-    private final Integer id;
+    private Integer id;
     private final String lastName;
     private final String firstName;
     private final String title;
@@ -47,13 +47,35 @@ public class EmployeeDto implements Serializable {
 
         this.salary = salary;
     }
+public EmployeeDto(Employee employee){
+    this.id = employee.getId();
+    this.lastName = employee.getLastName();
+    this.firstName = employee.getLastName();
+    this.title =employee.getTitle();
+    this.titleOfCourtesy = employee.getTitleOfCourtesy();
+    this.birthDate = employee.getBirthDate();
+    this.hireDate = employee.getHireDate();
+    this.address =employee.getAddress();
+    this.city = employee.getCity();
+    this.region = employee.getRegion();
+    this.postalCode = employee.getPostalCode();
+    this.country = employee.getCountry();
+    this.homePhone = employee.getHomePhone();
+    this.extension = employee.getExtension();
+    this.notes = employee.getNotes();
 
+    this.salary = employee.getSalary();
+}
 
 
 
     public Integer getId() {
         return id;
     }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 
     public String getLastName() {
         return lastName;
@@ -164,4 +186,6 @@ public class EmployeeDto implements Serializable {
                 "notes = " + notes + ", " +
                 "salary = " + salary + ")";
     }
+
+
 }

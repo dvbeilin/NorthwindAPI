@@ -1,15 +1,25 @@
 package com.sparta.northwindapi.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.sparta.northwindapi.dto.RegionDTO;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name= "Region")
 public class Region {
+
+    public Region(RegionDTO regionDTO) {
+        this.id = regionDTO.getRegionID();
+        this.regionDescription = regionDTO.getRegionDescription();
+    }
+
+    public Region() {
+
+    }
+
     @Id
     @Column(name = "RegionID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "RegionDescription", nullable = false, length = 50)

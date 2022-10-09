@@ -1,8 +1,11 @@
 package com.sparta.northwindapi.dto;
 
+import com.sparta.northwindapi.entity.Region;
+
+import java.io.Serializable;
 import java.util.Objects;
 
-public class RegionDTO {
+public class RegionDTO implements Serializable {
 
     private Integer regionID;
 
@@ -28,10 +31,15 @@ public class RegionDTO {
 
     }
 
-    public RegionDTO(Integer regionID, String regionDescription ){
+    public RegionDTO(Integer regionID, String regionDescription) {
         this.regionID = regionID;
         this.regionDescription = regionDescription;
 
+    }
+
+    public RegionDTO(Region region){
+        this.regionID = region.getId();
+        this.regionDescription = region.getRegionDescription();
     }
 
     @Override

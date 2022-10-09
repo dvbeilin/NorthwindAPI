@@ -56,12 +56,39 @@ public class EmployeeDAO {
         employeeRepo.save(employee);
         employee = employeeRepo.findById(employeeDto.getId()).get();
         return new EmployeeDto(employee.getId(),
-                employee.getFirstName(), employee.getLastName(), employee.getTitle(), employee.getTitleOfCourtesy(), employee.getBirthDate(), employee.getHireDate(), employee.getAddress(), employee.getCity(), employee.getRegion(), employee.getPostalCode(), employee.getCountry(), employee.getHomePhone(), employee.getExtension(), employee.getNotes(), employee.getSalary(), null);
+                employee.getFirstName(), employee.getLastName(), employee.getTitle(), employee.getTitleOfCourtesy(), employee.getBirthDate(), employee.getHireDate(), employee.getAddress(), employee.getCity(), employee.getRegion(), employee.getPostalCode(), employee.getCountry(), employee.getHomePhone(), employee.getExtension(), employee.getNotes(), employee.getSalary());
     }
 
 
-    public Employee create(Employee employee) {
-        return employeeRepo.save(employee);
+    public Integer create(EmployeeDto employeeDTO) {
+       Employee theEmployee = new Employee(employeeDTO);
+        employeeRepo.save(theEmployee);
+        return theEmployee.getId();
+    }
+    public EmployeeDto get(int id) {
+        Optional<Employee> employeeOpt = employeeRepo.findById(id);
+
+        if(employeeOpt.isPresent()) {
+            Employee theEmployee = employeeOpt.get();
+            return new EmployeeDto(
+                    theEmployee.getId(),
+                    theEmployee.getFirstName(),
+                    theEmployee.getLastName(),
+                    theEmployee.getTitle(),
+                    theEmployee.getTitleOfCourtesy(),
+                    theEmployee.getBirthDate(),
+                    theEmployee.getHireDate(),
+                    theEmployee.getAddress(),
+                    theEmployee.getCity(),
+                    theEmployee.getRegion(),
+                    theEmployee.getCountry(),
+                    theEmployee.getPostalCode(),
+                    theEmployee.getHomePhone(),
+                    theEmployee.getExtension(),
+                    theEmployee.getNotes(),
+                    theEmployee.getSalary()
+            );
+        } else return null;
     }
 
 }

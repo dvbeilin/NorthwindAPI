@@ -67,29 +67,9 @@ public class Employee {
     @Column(name = "Salary")
     private Float salary;
 
-   /* public Employee(int id, String firstName, String lastName, String title, String titleOfCourtesy, Instant birthDate, Instant hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, byte[] photo, String notes, String photoPath, Employee reportsTo, float salary) {
-        this.id=id;
-        this.firstName= firstName;
-        this.lastName=lastName;
-        this.title=title;
-        this.titleOfCourtesy=titleOfCourtesy;
-        this.birthDate=birthDate;
-        this.hireDate=hireDate;
-        this.address=address;
-        this.city=city;
-        this.region=region;
-        this.postalCode=postalCode;
-        this.country=country;
-        this.homePhone=homePhone;
-        this.extension=extension;
-        this.photo=photo;
-        this.notes=notes;
-        this.photoPath=photoPath;
-        this.notes=notes;
-        this.salary=salary;
 
 
-    }*/
+
 
 
     public Integer getId() {

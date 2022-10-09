@@ -1,5 +1,7 @@
 package com.sparta.northwindapi.entity;
 
+import com.sparta.northwindapi.dto.OrderDTO;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -7,6 +9,21 @@ import java.time.Instant;
 @Entity
 @Table(name = "orders")
 public class Order {
+    public Order(OrderDTO orderDTO) {
+        this.orderDate = orderDTO.getOrderDate();
+        this.requiredDate = orderDTO.getRequiredDate();
+        this.shippedDate = orderDTO.getShippedDate();
+        this.freight = orderDTO.getFreight();
+        this.shipName = orderDTO.getShipName();
+        this.shipAddress = orderDTO.getShipAddress();
+        this.shipCity = orderDTO.getShipCity();
+        this.shipRegion = orderDTO.getShipRegion();
+        this.shipPostalCode = orderDTO.getShipPostalCode();
+        this.shipCountry = orderDTO.getShipCountry();
+    }
+    public Order() {
+
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "OrderID", nullable = false)
@@ -41,6 +58,8 @@ public class Order {
 
     @Column(name = "ShipCountry", length = 15)
     private String shipCountry;
+
+
 
     public Integer getId() {
         return id;

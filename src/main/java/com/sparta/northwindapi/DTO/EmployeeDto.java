@@ -28,7 +28,7 @@ public class EmployeeDto implements Serializable {
 
     private final Float salary;
 
-    public EmployeeDto(Integer id, String lastName, String firstName, String title, String titleOfCourtesy, Instant birthDate, Instant hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, String notes, Float salary, Object o) {
+    public EmployeeDto(Integer id, String lastName, String firstName, String title, String titleOfCourtesy, Instant birthDate, Instant hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, String notes, Float salary) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -47,6 +47,7 @@ public class EmployeeDto implements Serializable {
 
         this.salary = salary;
     }
+
 
 
 

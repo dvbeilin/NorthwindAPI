@@ -1,24 +1,21 @@
 package com.sparta.northwindapi.entity.controller;
 
-import com.sparta.northwindapi.dao.RegionDAO;
 import com.sparta.northwindapi.entity.Region;
 import com.sparta.northwindapi.repo.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 public class RegionController {
+
 
     @Autowired
     private RegionRepository regionRepo;
 
-    @Autowired
-    private RegionDAO regionDAO;
-
-    @GetMapping("/regions/{id}")
+    @GetMapping("/region/{id}")
     public Region getRegionById(@PathVariable int id){
         Region result = regionRepo.findById(id).get();
         return result;
@@ -30,7 +27,7 @@ public class RegionController {
         return list;
     }
 
-    @PostMapping("/regions")
+    @PostMapping("/region")
     @ResponseStatus(value= HttpStatus.NO_CONTENT)
     public void newCustomer(@RequestBody Region newRegion){
 //        RegionRepository rep = RegionRepository.getInstance();
@@ -38,7 +35,7 @@ public class RegionController {
     }
 
 
-    @DeleteMapping("/regions/{id}")
+    @DeleteMapping("/region{id}")
     public int deleteById(@PathVariable int id){
         Region region = regionRepo.findById(id).get();
         regionRepo.delete(region);

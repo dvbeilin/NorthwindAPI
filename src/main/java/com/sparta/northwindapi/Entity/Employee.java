@@ -1,5 +1,7 @@
 package com.sparta.northwindapi.Entity;
 
+import com.sparta.northwindapi.DTO.EmployeeDto;
+
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -67,29 +69,25 @@ public class Employee {
     @Column(name = "Salary")
     private Float salary;
 
-   /* public Employee(int id, String firstName, String lastName, String title, String titleOfCourtesy, Instant birthDate, Instant hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, byte[] photo, String notes, String photoPath, Employee reportsTo, float salary) {
-        this.id=id;
-        this.firstName= firstName;
-        this.lastName=lastName;
-        this.title=title;
-        this.titleOfCourtesy=titleOfCourtesy;
-        this.birthDate=birthDate;
-        this.hireDate=hireDate;
-        this.address=address;
-        this.city=city;
-        this.region=region;
-        this.postalCode=postalCode;
-        this.country=country;
-        this.homePhone=homePhone;
-        this.extension=extension;
-        this.photo=photo;
-        this.notes=notes;
-        this.photoPath=photoPath;
-        this.notes=notes;
-        this.salary=salary;
+    public Employee(EmployeeDto employeeDTO) {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.title = title;
+        this.titleOfCourtesy = titleOfCourtesy;
+        this.birthDate = birthDate;
+        this.hireDate = hireDate;
+        this.address = address;
+        this.city = city;
+        this.region = region;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.homePhone = homePhone;
+        this.extension = extension;
+        this.notes = notes;
 
-
-    }*/
+        this.salary = salary;
+    }
 
 
     public Integer getId() {
@@ -204,13 +202,6 @@ public class Employee {
         this.extension = extension;
     }
 
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
-    }
 
     public String getNotes() {
         return notes;
@@ -220,21 +211,7 @@ public class Employee {
         this.notes = notes;
     }
 
-    public Employee getReportsTo() {
-        return reportsTo;
-    }
 
-    public void setReportsTo(Employee reportsTo) {
-        this.reportsTo = reportsTo;
-    }
-
-    public String getPhotoPath() {
-        return photoPath;
-    }
-
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
-    }
 
     public Float getSalary() {
         return salary;

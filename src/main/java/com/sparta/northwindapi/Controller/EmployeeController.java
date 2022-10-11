@@ -2,10 +2,10 @@ package com.sparta.northwindapi.Controller;
 
 import com.sparta.northwindapi.Entity.Employee;
 import com.sparta.northwindapi.Repo.EmployeeRepo;
-import com.sparta.northwindapi.Repo.EmployeeRepository;
+
+import com.sparta.northwindapi.repo.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.rmi.ServerException;

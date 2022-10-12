@@ -1,4 +1,4 @@
-package com.sparta.northwindapi;
+package com.sparta.northwindapi.entity;
 
 import javax.persistence.*;
 

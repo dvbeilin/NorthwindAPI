@@ -1,8 +1,5 @@
 package com.sparta.northwindapi.dto;
 
-import com.sparta.northwindapi.Category;
-import com.sparta.northwindapi.Supplier;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;

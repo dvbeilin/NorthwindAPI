@@ -1,4 +1,4 @@
-package com.sparta.northwindapi.Controller;
+package com.sparta.northwindapi.controller;
 
 import com.sparta.northwindapi.Entity.Employee;
 import com.sparta.northwindapi.Repo.EmployeeRepo;
@@ -59,4 +59,5 @@ public class EmployeeController {
         employeeRepo.save(newEmployee);
         return newEmployee;
     }*/
+
 }

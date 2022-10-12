@@ -1,4 +1,4 @@
-package com.sparta.northwindapi.entity.controller;
+package com.sparta.northwindapi.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class OrderController {
     @Autowired
     private OrderDAO orderDAO;
 
-    @GetMapping("/order/{id}")
+    @GetMapping("api/order/{id}")
     public ResponseEntity<String> getOrder(@PathVariable int id) {
         ResponseEntity result = null;
         OrderDTO orderDTO = orderDAO.get(id);
@@ -42,18 +43,18 @@ public class OrderController {
         return result;
     }
 
-    @GetMapping("/order/all")
+    @GetMapping("api/order/all")
     public List<OrderDTO> getAllOrders() {
         return orderDAO.getAll();
     }
 
-    @PostMapping("/order/")
+    @PostMapping("api/order/create")
     @ResponseStatus(value = HttpStatus.CREATED)
     public int createOrder(@RequestBody OrderDTO newOrder) {
         return orderDAO.create(newOrder);
     }
 
-    @PatchMapping("/order/{id}")
+    @PatchMapping("api/order/{id}")
     public ResponseEntity updateOrder(@PathVariable int id, @RequestBody OrderDTO newOrder) {
         ResponseEntity result = null;
         OrderDTO orderDTO = newOrder;
@@ -72,7 +73,7 @@ public class OrderController {
         return result;
     }
 
-    @PutMapping("/order/{id}")
+    @PutMapping("api/order/{id}")
     public ResponseEntity<String> createOrUpdateOrder(@PathVariable int id, @RequestBody OrderDTO newOrder) {
         ResponseEntity result = null;
         OrderDTO orderDTO = newOrder;
@@ -97,7 +98,7 @@ public class OrderController {
         }
     }
 
-    @DeleteMapping("order/{id}")
+    @DeleteMapping("api/order/{id}")
     public ResponseEntity<String> deleteById(@PathVariable int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-type", "application/json");
@@ -108,7 +109,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping("order/")
+    @GetMapping("api/order/")
     public ResponseEntity<String> queryByName(@RequestParam String shipName) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-type", "application/json");
@@ -124,5 +125,8 @@ public class OrderController {
             }
         }
     }
+
+
+
 }
 

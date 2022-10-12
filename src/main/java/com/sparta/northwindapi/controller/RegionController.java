@@ -1,4 +1,4 @@
-package com.sparta.northwindapi.entity.controller;
+package com.sparta.northwindapi.controller;
 
 import com.sparta.northwindapi.entity.Region;
 import com.sparta.northwindapi.repo.RegionRepository;

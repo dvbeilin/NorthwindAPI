@@ -1,8 +1,8 @@
-package com.sparta.northwindapi.DAO;
+package com.sparta.northwindapi.dao;
 
 import com.sparta.northwindapi.DTO.EmployeeDto;
 import com.sparta.northwindapi.Entity.Employee;
-import com.sparta.northwindapi.Repo.EmployeeRepository;
+import com.sparta.northwindapi.repo.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

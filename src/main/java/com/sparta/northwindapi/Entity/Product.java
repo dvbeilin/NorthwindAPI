@@ -1,7 +1,7 @@
 package com.sparta.northwindapi.Entity;
 
-import com.sparta.northwindapi.Category;
-import com.sparta.northwindapi.Supplier;
+import com.sparta.northwindapi.entity.Category;
+import com.sparta.northwindapi.entity.Supplier;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

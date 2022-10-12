@@ -1,4 +1,4 @@
-package com.sparta.northwindapi;
+package com.sparta.northwindapi.controller;
 
 import com.sparta.northwindapi.Entity.Product;
 import com.sparta.northwindapi.dao.ProductDAO;

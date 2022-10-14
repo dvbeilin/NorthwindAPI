@@ -1,9 +1,7 @@
 package com.sparta.northwindapi.web.controllers;
 
-import com.sparta.northwindapi.controller.OrderController;
 import com.sparta.northwindapi.dao.OrderDAO;
 import com.sparta.northwindapi.dto.OrderDTO;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@SessionAttributes("orderList")
 public class OrderWebController {
 
     @Autowired
@@ -76,5 +76,20 @@ public class OrderWebController {
         OrderDTO order = orderDAO.get(id);
         model.addAttribute("order",order);
         return "updateOrderForm";
+    }
+
+    @GetMapping("/orderList/add/{id}")
+    public String addOrder(@PathVariable int id, @ModelAttribute("orderList") List<OrderDTO> orderList) {
+        OrderDTO orderToAdd = orderDAO.get(id);
+        if(orderToAdd != null) {
+            orderList.add(orderToAdd);
+            return "orderList";
+        }
+        else return "allOrders";
+    }
+
+    @ModelAttribute("orderList")
+    public List<OrderDTO> orderList() {
+        return new ArrayList<>();
     }
 }
